@@ -1,0 +1,54 @@
+﻿@model Presentation.ViewModels.EmployerViewModel
+
+@{
+    ViewData["Title"] = "Employers";
+}
+
+<h1>Employers</h1>
+
+<br>
+<br>
+
+<form id="remove" asp-controller="Employer" asp-action="RemoveEmployer" method="post">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">Business name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ListOfEmployers.Count; i++)
+            {
+            <tr>               
+                <td>@Model.ListOfEmployers[i].Name</td>
+                <td align="center">
+                    <span class="table-remove">
+                        <button type="submit"
+                                name="Id"
+                                value="@Model.ListOfEmployers[i].Id"
+                                form="remove"
+                                class="form-control btn btn-danger mb-2" style="width:110px">
+                            Remove
+                        </button>
+                    </span>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
+<br>
+<br>
+
+<form asp-controller="Employer" asp-action="CreateEmployer" method="post">
+    <input asp-for="NewName"/>
+  
+    <button type="submit">Add Employer</button>
+</form>
+
+
+
+
+
+

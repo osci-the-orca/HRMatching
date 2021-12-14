@@ -1,0 +1,73 @@
+﻿@model Presentation.ViewModels.JobSeekerViewModel
+
+@{
+    ViewData["Title"] = "JobSeekers";
+}
+
+<form id="remove" asp-controller="JobSeeker" asp-action="RemoveJobSeeker" method="post">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Contact info</th>               
+                <th scope="col">Looking for work in</th>                
+                <th scope="col">Has license</th>
+                <th scope="col">Years of experience</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ListOfJobSeekers.Count; i++)
+            {
+                <tr>
+                    <td>@Model.ListOfJobSeekers[i].FirstName @Model.ListOfJobSeekers[i].LastName</td>
+                    <td>@Model.ListOfJobSeekers[i].YearBorn.ToShortDateString()<br />
+                        @Model.ListOfJobSeekers[i].StreetAdress<br />
+                        @Model.ListOfJobSeekers[i].PhoneNumber<br />
+                        @Model.ListOfJobSeekers[i].Email
+                    </td>                   
+                    <td>@Model.ListOfJobSeekers[i].InSector.Sector_Type</td>                   
+                    <td>@Model.ListOfJobSeekers[i].HasLicense.License_Type</td>
+                    <td>@Model.ListOfJobSeekers[i].YearsOfExperience</td>
+                    <td>
+                        <span class="table-remove">
+                            <button type="submit" name="Id" value="@Model.ListOfJobSeekers[i].Id" form="remove"
+                            class="form-control btn btn-danger mb-2">
+                                Remove
+                            </button>
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+<br />
+<br />
+
+<div class="row">
+    <div class="col-12">
+        <form asp-controller="JobSeeker" asp-action="CreateJobSeeker" method="post">
+            Firstname <br /> <input asp-for="NewFirstName" /><br />
+            Lastname<br /> <input asp-for="NewLastName" /><br />
+            Date of birth <br /> <input asp-for="YearBorn" /><br />
+            Street Adress <br /> <input asp-for="StreetAdress" /><br />
+            Phone number<br /> <input asp-for="NewPhoneNumber" /><br />
+            Email Adress<br /> <input asp-for="NewEmailAdress" /><br />
+            City <br /> <input asp-for="Location" /><br />
+            Sector <br /><select asp-for="InSector.Id">
+                @foreach (var item in Model.ListOfSectors)
+                {
+                    <option value="@item.Id"> @item.Sector_Type </option>
+                }
+            </select><br />
+            License <br /><select asp-for="HasLicense.Id">
+                @foreach (var item in Model.ListOfLicenses)
+                {
+                    <option value="@item.Id"> @item.License_Type</option>
+                }
+            </select> <br />
+            Years of experience<br /> <input asp-for="YearsOfExperience" /><br />
+            <button type="submit">Add JobSeeker</button>
+        </form>
+    </div>
+</div>

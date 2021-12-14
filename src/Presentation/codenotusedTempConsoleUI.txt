@@ -1,0 +1,45 @@
+// Employer employer = new() { Name = "Bannan" };
+// dataAccessCommands.CreateEmployer(employer);
+
+// Employer PizzeriaNapoli = new("Pizzeria Napoli", "Food Industry");
+// dataAccessCommands.CreateEmployer(PizzeriaNapoli);
+
+
+// JobAd plumber = new("Plumber", "Chicago", 3, 1, 2);
+// dataAccessCommands.InsertJobAd(plumber);
+
+
+// foreach (var item in dataAccessQuerys.GetAllEmployers())
+// {
+//     System.Console.WriteLine($"{item.Id}.{item.Name} - {item.FieldOfWork}");
+// }
+
+// foreach (var item in dataAccess)
+// {
+
+// }
+
+
+//..
+
+
+// JobAd jobAd_plumber = new("Plumber", "New York", 3, 1);
+// dataAccessCommands.InsertJobAd(jobAd_plumber);
+// Console.WriteLine(jobAd_plumber.Name);
+
+
+// FakeDataBaseQuerysV2 fakeDataBaseQuerysV2 = new();
+// List<JobAd> jobAds = fakeDataBaseQuerysV2.GetJobAds();
+// List<JobSeeker> jobSeekers = fakeDataBaseQuerysV2.GetAllJobSeekers();
+
+// List<JobAdd_JobSeeker_Match> test2 = calculator.MatchThisJobSeeker(5, jobSeekers.FirstOrDefault(), jobAds);
+
+
+//För en arbetssökare
+// foreach (JobAdd_JobSeeker_Match item in test2)
+// {
+//     Console.WriteLine($"Arbetsökande {item.jobSeeker.FirstName} Söker följande jobb:");
+//     Console.WriteLine($"{item.jobAd.JobAdEmployer}");
+//     Console.WriteLine($"{item.jobSeeker.FirstName} Hade {item.MatchRating} poäng av totalt {item.MaxRating} möjliga poäng");
+
+// }

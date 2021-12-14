@@ -1,0 +1,70 @@
+﻿@model Presentation.ViewModels.JobAd_JobSeeker_MatchViewModel
+
+@{
+    ViewData["Title"] = "JobSeekers";
+}
+
+<form id="remove" asp-controller="JobSeeker" asp-action="RemoveJobSeeker" method="post"></form>
+
+<div class="row">
+    <div class="col-3">
+        <h1>Job seekers</h1>
+    </div>
+    <div class="col-9">
+        <h1>Job Ad</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        @foreach (var jobSeeker in Model.ListOfJobSeekers)
+        {
+            <div class="col-12 p-3 mb-3" style="border: 1px solid #eee; background-color: #f9f9f9; ">
+                <table class="table">
+                    <tr>
+                        <td class="col font-weight-bold">@jobSeeker.FirstName @jobSeeker.LastName</td>
+                    </tr>
+                    <tr>
+                        <td class="col">
+                            @jobSeeker.YearBorn.ToShortDateString()<br />
+                            @jobSeeker.StreetAdress<br />
+                            @jobSeeker.PhoneNumber<br />
+                            @jobSeeker.Email<br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col">
+                           Looking for work in: @jobSeeker.InSector.Sector_Type<br />
+                           Has Licenese: @jobSeeker.HasLicense.License_Type<br />
+                           Years of Experience: @jobSeeker.YearsOfExperience<br />                           
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+    <div class="col-9">
+        <div class="col-12 p-3 mb-3" style="border: 1px solid #eee; background-color: #f9f9f9; ">
+            <table class="table">
+                <tr>
+                    <td class="col font-weight-bold">@Model.JobAd.JobAdEmployer.Name</td>
+                </tr>
+                <tr>
+                    <td class="col">
+                        Work location: @Model.JobAd.Location<br />
+                        Work in sector: @Model.JobAd.InSector.Sector_Type<br />
+                        Requierd license: @Model.JobAd.RequireLicense.License_Type<br />
+                        Minimum Years of experience: @Model.JobAd.YearsOfExperience<br />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+ 
+
+

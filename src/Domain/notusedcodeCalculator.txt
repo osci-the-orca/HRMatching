@@ -1,0 +1,67 @@
+
+
+        // private int CompareLicense(JobSeeker jobSeeker, JobAd jobAd)
+        // {
+        //     if (jobAd.RequireLicense.License_Type == jobSeeker.HasLicense.License_Type)
+        //     {
+        //         if(jobAd.YearsOfExperience >= jobSeeker.YearsOfExperience)
+        //         {
+        //             return 10 + 2 * jobSeeker.YearsOfExperience - jobAd.YearsOfExperience;
+        //         }
+        //         return 10;
+        //     }
+        //     return 0;
+        // }
+        // private int CompareSector(JobSeeker jobSeeker, JobAd jobAd)
+        // {
+        //     if (jobAd.InSector == jobSeeker.InSector)
+        //     {
+        //         return 10;
+        //     }
+        //     return 0;
+        // }
+        // private int CompareExperience(JobSeeker jobSeeker, JobAd jobAd)
+
+        // {
+        //     if(jobAd.InSector == jobSeeker.InSector)
+        //     {
+        //         if(jobSeeker.YearsOfExperience >= jobAd.YearsOfExperience)
+        //         {
+        //                 return 10 + 2 * (jobSeeker.YearsOfExperience - jobAd.YearsOfExperience);
+        //         }
+        //         else
+        //         {
+        //             return jobSeeker.YearsOfExperience;
+        //         }
+
+        //     }
+        //     return 0;
+        // }
+        /*
+        private int AllCompare(CheckExperience checkExperience)
+        {
+            return checkExperience.CompareExperience(jobSeeker, jobAd);
+        }
+        */
+
+                kod för att matcha en jobsöker mot bästa jobannons
+        // public List<JobAd_JobSeeker_Match> MatchThisJobSeeker(int numberOfMatches, JobSeeker jobSeeker, List<JobAd> jobAds)
+        // {
+        //     List<JobAd_JobSeeker_Match> selectedJobSeekerJobMatch = new();
+        //     JobAd_JobSeeker_Match jobAdd_JobSeeker_Match = new();
+        //     foreach (var jobAd in jobAds)
+        //     {
+        //         jobAdd_JobSeeker_Match = new();
+        //         jobAdd_JobSeeker_Match.jobAd = jobAd;
+        //         jobAdd_JobSeeker_Match.jobSeeker = jobSeeker;
+        //         jobAdd_JobSeeker_Match.MatchRating = _checkSector.CompareSector(jobSeeker, jobAd) + _checkLicense.CompareLicense(jobSeeker, jobAd) + _checkExperience.CompareExperience(jobSeeker, jobAd);
+        //         selectedJobSeekerJobMatch.Add(jobAdd_JobSeeker_Match);
+        //     }
+        //     selectedJobSeekerJobMatch = selectedJobSeekerJobMatch.OrderByDescending(x => x.MatchRating).ToList();
+        //     selectedJobSeekerJobMatch.RemoveRange(numberOfMatches, selectedJobSeekerJobMatch.Count - numberOfMatches);
+        //     return selectedJobSeekerJobMatch;
+        // }
+
+
+        //borttaget från interfacet
+        //List<JobAd_JobSeeker_Match> MatchThisJobSeeker(int numberOfMatches, JobSeeker jobSeeker, List<JobAd> jobAds);

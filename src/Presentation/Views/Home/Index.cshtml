@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1> 
+</div>
+
+<div class="row">
+    <div class="col-4 box">
+        <div class="box-img" style="background-image: url('/img/kelly-sikkema-v9FQR4tbIq8-unsplash.jpg');">
+            <div class="box-img-link"><a href='@Url.Action("ListJobAds", "JobAd")' style="width:100%;height:100%;display:block">Job ads</a></div>
+        </div>
+    </div>
+
+        <div class="col-4 box">
+            <div class="box-img" style="background-image: url('/img/max-larochelle-c-vWdiICscA-unsplash.jpg'); background-position-y: -75px;">
+                <div class="box-img-link"><a href='@Url.Action("ListJobSeekers", "JobSeeker")' style="width:100%;height:100%;display:block">Job seekers</a></div>
+            </div>
+        </div>
+        <div class="col-4 box">
+            <div class="box-img" style="background-image: url('/img/sean-pollock-PhYq704ffdA-unsplash.jpg');">
+                <div class="box-img-link"><a href='@Url.Action("ListEmployers", "Employer")' style="width:100%;height:100%;display:block">Employers</a></div>
+            </div>
+        </div>
+        </div>

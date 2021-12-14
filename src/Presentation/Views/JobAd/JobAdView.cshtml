@@ -1,0 +1,75 @@
+﻿@model Presentation.ViewModels.JobAdViewModel
+
+@{
+    ViewData["Title"] = "JOBADS";
+}
+
+<h1>JobAds</h1>
+<br />
+<br />
+<form id="remove" asp-controller="JobAd" asp-action="RemoveJobAd" method="post">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Business Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Sector Type</th>
+                <th scope="col">License required</th>
+                <th scope="col">Years of experience required</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.ListOfJobAds.Count; i++)
+            {
+
+            <tr onclick="location.href = '@Url.Action("ShowJobSeekersMatchingJobAd", "JobAd_JobSeeker_Match", new { Id=Model.ListOfJobAds[i].Id })'">
+                <td>@Model.ListOfJobAds[i].JobAdEmployer.Name</td>
+                <td>@Model.ListOfJobAds[i].Location</td>
+                <td>@Model.ListOfJobAds[i].InSector.Sector_Type</td>
+                <td>@Model.ListOfJobAds[i].RequireLicense.License_Type</td>
+                <td>@Model.ListOfJobAds[i].YearsOfExperience</td>
+                <td align="center">
+                    <span class="table-remove">
+                        <button type="submit" name="Id" value="@Model.ListOfJobAds[i].Id" form="remove"
+                                class="form-control btn btn-danger mb-2" style="width:110px">
+                            Remove
+                        </button>
+                    </span>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
+<br>
+<br>
+<div class="row">
+    <div class="col-12">
+        <form asp-controller="JobAd" asp-action="CreateJobAd" method="post">           
+            Employer <br /><select asp-for="JobAdEmployer.Id">
+                @foreach (var item in Model.ListOfEmployers)
+                {
+                    <option value="@item.Id"> @item.Name </option>
+                }
+            </select><br />
+
+            Location <br /><input asp-for="Location" /><br />
+            Sector <br /><select asp-for="InSector.Id">
+                @foreach (var item in Model.ListOfSectors)
+                {
+                    <option value="@item.Id"> @item.Sector_Type </option>
+                }
+            </select><br />
+
+            License <br /><select asp-for="RequireLicense.Id">
+                @foreach (var item in Model.ListOfLicenses)
+                {
+                    <option value="@item.Id"> @item.License_Type </option>
+                }
+            </select><br />
+            Years of experience <br /><input asp-for="YearsOfExperience" /><br />
+            <button type="submit">Add JobAd</button>
+        </form>
+        <br>
+    </div>
+</div>
